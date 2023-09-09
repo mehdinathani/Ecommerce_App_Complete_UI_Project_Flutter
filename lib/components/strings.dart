@@ -1,0 +1,15 @@
+class OnBoardingTextData {
+  static String getstarted = "Get Started";
+  static String h1text1 = "Your holiday shopping delivered to Screen one";
+  static String content1text1 =
+      "There's something for everyone to enjoy with Sweet Shop Favourites Screen 1";
+  static String h1text2 = "Your holiday shopping delivered to Screen  two";
+  static String content1text2 =
+      "There's something for everyone to enjoy with Sweet Shop Favourites Screen 2";
+  static String searchFieldHintText = "Search Products or store";
+
+  static String deliverd_to = "Delivery to";
+  static String within = "Within";
+  static String Recommended = "Recommended";
+  static String dealsin = "Deals on Fruits & Tea";
+}
