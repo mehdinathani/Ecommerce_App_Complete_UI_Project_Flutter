@@ -18,7 +18,7 @@ class _DeliveryTimeMenuState extends State<DeliveryTimeMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
-      width: 57.94,
+      width: 90.94,
       label: Text(
         textAlign: TextAlign.justify,
         OnBoardingTextData.within,

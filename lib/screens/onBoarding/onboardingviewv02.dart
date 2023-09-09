@@ -41,7 +41,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       ),
     )
   ];
-  int _curr = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +52,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         controller: controller,
         onPageChanged: (num) {
           setState(() {
-            _curr = num;
             // print(_curr);
           });
         },

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/screens/onBoarding/recomendedtab.dart';
-import 'package:uimehdinathani/widgets/dealsItemCard.dart';
 import 'package:uimehdinathani/widgets/topBarBackground.dart';
 import '../../widgets/customBanner.dart';
 import 'dealspage.dart';

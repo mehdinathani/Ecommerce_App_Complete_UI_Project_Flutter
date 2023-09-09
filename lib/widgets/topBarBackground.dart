@@ -66,7 +66,7 @@ class _TopBarBackgroundState extends State<TopBarBackground> {
 
 // extra funtions
 String greetuser(bool isgreet, String? username) {
-  return isgreet ? "Hey ${username ?? 'User'}" : " ";
+  return isgreet ? "Hey, ${username ?? 'User'}" : " ";
 }
 
 Container showCartIcon(bool isCartIconShow) {
@@ -113,4 +113,13 @@ appBarlastSubheading(String firsttext, String secondtext) {
       DeliveryTimeMenu(),
     ],
   );
+}
+
+Container showSearchIcon(bool isSearchIconShow) {
+  String imagePath = "assets/images/Search.svg";
+  return isSearchIconShow
+      ? Container(
+          child: Image(image: Svg(imagePath)),
+        )
+      : Container();
 }

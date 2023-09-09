@@ -110,3 +110,17 @@ TextStyle itemCardAmountStyle = CustomTextStyle.toTextStyle(
       fontWeight: FontWeight.w600,
       textColor: AppColors.amountColor),
 );
+
+TextStyle topBarFirstHeadingStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+      fontSize: 50,
+      fontWeight: FontWeight.w300,
+      textColor: AppColors.getstartedbuttonColor),
+);
+
+TextStyle topBarSecondHeadingStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+      fontSize: 50,
+      fontWeight: FontWeight.w800,
+      textColor: AppColors.getstartedbuttonColor),
+);

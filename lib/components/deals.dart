@@ -17,3 +17,9 @@ getItemsDeal({category}) {
   List itemsInCategory = getItemsByCategory(category);
   return itemsInCategory;
 }
+
+todaysDeals(String item) {
+  String textLine = "Deals on $item";
+  List dealsItems = getItemsByCategory(item);
+  return [textLine, dealsItems];
+}
