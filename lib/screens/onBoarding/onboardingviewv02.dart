@@ -114,26 +114,27 @@ class Pages extends StatelessWidget {
                   height: 80,
                 ),
                 Container(
-                    width: 129,
-                    height: 129,
-                    child: CarouselSlider(
-                      options: CarouselOptions(
-                        enableInfiniteScroll: true,
-                        autoPlay: true,
-                        autoPlayInterval: const Duration(seconds: 3),
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                      ),
-                      items: imgList
-                          .map((item) => Container(
-                                child: Center(
-                                    child: Image.asset(
-                                  item,
-                                  fit: BoxFit.cover,
-                                )),
-                              ))
-                          .toList(),
-                    )),
+                  width: 129,
+                  height: 129,
+                  child: CarouselSlider(
+                    options: CarouselOptions(
+                      enableInfiniteScroll: true,
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                    ),
+                    items: imgList
+                        .map((item) => Container(
+                              child: Center(
+                                  child: Image.asset(
+                                item,
+                                fit: BoxFit.cover,
+                              )),
+                            ))
+                        .toList(),
+                  ),
+                ),
               ],
             ),
           ),

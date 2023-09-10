@@ -49,7 +49,7 @@ class _TopBarBackgroundState extends State<TopBarBackground> {
                 const SizedBox(
                   width: 40,
                 ),
-                showCartIcon(true),
+                showCartIcon(true, AppColors.whiteText),
               ],
             ),
             _searchField(),
@@ -69,11 +69,14 @@ String greetuser(bool isgreet, String? username) {
   return isgreet ? "Hey, ${username ?? 'User'}" : " ";
 }
 
-Container showCartIcon(bool isCartIconShow) {
+Container showCartIcon(bool isCartIconShow, Color? color) {
   String imagePath = "assets/images/bag.svg";
   return isCartIconShow
       ? Container(
-          child: Image(image: Svg(imagePath)),
+          child: Image(
+            image: Svg(imagePath),
+            color: color ?? AppColors.whiteText,
+          ),
         )
       : Container();
 }
@@ -115,11 +118,14 @@ appBarlastSubheading(String firsttext, String secondtext) {
   );
 }
 
-Container showSearchIcon(bool isSearchIconShow) {
+Container showSearchIcon(bool isSearchIconShow, Color? color) {
   String imagePath = "assets/images/Search.svg";
   return isSearchIconShow
       ? Container(
-          child: Image(image: Svg(imagePath)),
+          child: Image(
+            image: Svg(imagePath),
+            color: color ?? AppColors.whiteText,
+          ),
         )
       : Container();
 }

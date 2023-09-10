@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uimehdinathani/screens/onBoarding/categoryview.dart';
+import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
+import 'package:uimehdinathani/widgets/custom_bottom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Manrope"),
-      home: const CategoryView(),
+      home: ItemView(),
     );
   }
 }

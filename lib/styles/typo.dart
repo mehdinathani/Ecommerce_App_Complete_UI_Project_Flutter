@@ -124,3 +124,10 @@ TextStyle topBarSecondHeadingStyle = CustomTextStyle.toTextStyle(
       fontWeight: FontWeight.w800,
       textColor: AppColors.getstartedbuttonColor),
 );
+
+TextStyle choiceChiptagsStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      textColor: AppColors.amountColor),
+);

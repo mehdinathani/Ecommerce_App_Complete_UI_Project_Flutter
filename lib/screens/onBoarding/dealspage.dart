@@ -10,6 +10,8 @@ class DealsView extends StatefulWidget {
   static RecomendedItems recomendedItems = RecomendedItems();
   static List fruitsDeal = getItemsDeal(category: 'Vegetable');
 
+  // static List fruitsDeal = getItemsDeal(category: todaysDeals('Fruits'));
+
   const DealsView({super.key});
 
   @override
@@ -34,6 +36,7 @@ class _DealsViewState extends State<DealsView> {
         height: MediaQuery.sizeOf(context).height * 0.011,
       ),
       Container(
+        padding: const EdgeInsets.all(20),
         height: 194,
         width: double.infinity,
         child: ListView.separated(
@@ -43,6 +46,7 @@ class _DealsViewState extends State<DealsView> {
               return DealsIteamCard(
                 textdata: fruitsDeal['name'],
                 amount: fruitsDeal['price'],
+                imagepath: fruitsDeal['img'][0],
               );
             },
             separatorBuilder: (context, index) => const SizedBox(

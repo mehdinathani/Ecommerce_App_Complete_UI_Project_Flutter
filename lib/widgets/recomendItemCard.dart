@@ -9,12 +9,14 @@ class RecomendedItemCard extends StatefulWidget {
   final String firstlineText;
   final String secondLineText;
   final num amount;
+  final String? imagePath;
 
   const RecomendedItemCard(
       {super.key,
       required this.firstlineText,
       required this.secondLineText,
-      required this.amount});
+      required this.amount,
+      this.imagePath});
 
   @override
   State<RecomendedItemCard> createState() => _RecomendedItemCardState();
@@ -29,11 +31,15 @@ class _RecomendedItemCardState extends State<RecomendedItemCard> {
       height: 194,
       width: 128,
       children: [
-        Image(
-          height: 56.67,
-          width: 56.67,
-          image: Svg(AppImagesPath.imageIcon, color: AppColors.black),
-        ),
+        Expanded(
+          child: Image.asset(widget.imagePath ?? AppImagesPath.Cart),
+        )
+        // Image(
+        //   height: 56.67,
+        //   width: 56.67,
+        //   image: Svg(AppImagesPath.imageIcon, color: AppColors.black),
+        // ),
+        ,
         Image(
           image: Svg(AppImagesPath.lineIcon2),
           color: AppColors.lineIcon3Color,

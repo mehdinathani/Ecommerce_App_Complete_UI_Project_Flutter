@@ -46,6 +46,7 @@ class _RecomendedTabState extends State<RecomendedTab> {
                     firstlineText: recomendedItem['name'],
                     secondLineText: recomendedItem['tagline'],
                     amount: recomendedItem['price'],
+                    imagePath: recomendedItem['img'][0],
                   );
                 },
                 separatorBuilder: (context, index) => const SizedBox(

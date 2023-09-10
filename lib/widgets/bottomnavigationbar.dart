@@ -1,5 +1,7 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:uimehdinathani/screens/onBoarding/categoryview.dart';
+import 'package:uimehdinathani/screens/onBoarding/filtered_view.dart';
 import 'package:uimehdinathani/screens/onBoarding/onboardingviewv02.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 
@@ -28,6 +30,8 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
   final List<Widget> bottomBarPages = const [
     GroceryHome(),
     OnBoardingView(),
+    CategoryView(),
+    filtered_view()
   ];
 
   @override
@@ -70,9 +74,12 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
                   ),
                 ],
                 onTap: (index) {
-                  /// perform action on tab change and to update pages you can update pages without pages
-                  print('current selected index $index');
-                  _pageController.jumpToPage(index);
+                  try {
+                    print('current selected index $index');
+                    _pageController.jumpToPage(index);
+                  } catch (e) {
+                    print('Error while navigating: $e');
+                  }
                 })
             : null);
   }

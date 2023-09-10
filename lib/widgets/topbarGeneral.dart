@@ -10,6 +10,11 @@ class GeneralTopBar extends StatefulWidget {
   final List<Widget>? children;
   final bool? isgreet;
   final String? username;
+  final bool? isSearchIconShow;
+  final Color? searchIconColor;
+  final bool? isCartIconShow;
+  final Color? cartIconColor;
+
   const GeneralTopBar(
       {super.key,
       this.isgreet,
@@ -17,7 +22,11 @@ class GeneralTopBar extends StatefulWidget {
       this.width,
       this.height,
       this.color,
-      this.children});
+      this.children,
+      this.isSearchIconShow,
+      this.searchIconColor,
+      this.isCartIconShow,
+      this.cartIconColor});
 
   @override
   State<GeneralTopBar> createState() => _GeneralTopBarState();
@@ -38,29 +47,36 @@ class _GeneralTopBarState extends State<GeneralTopBar> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 DefaultTextStyle(
                   style: usernamestyle,
                   child: Text(
-                    greetuser(widget.isgreet!, widget.username),
+                    greetuser(widget.isgreet ?? false, widget.username),
                   ),
                 ),
                 const SizedBox(
                   width: 40,
                 ),
-                showSearchIcon(true),
+                showSearchIcon(
+                    widget.isSearchIconShow ?? true, widget.searchIconColor),
                 const SizedBox(
                   width: 3,
                 ),
-                showCartIcon(true),
+                showCartIcon(
+                    widget.isCartIconShow ?? true, widget.cartIconColor),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.min,
-              children: widget.children ?? [],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.min,
+                children: widget.children ?? [],
+              ),
             ),
           ],
         ),

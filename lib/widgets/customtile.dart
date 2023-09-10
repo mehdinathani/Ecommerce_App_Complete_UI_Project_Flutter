@@ -30,7 +30,7 @@ class CustomTile extends StatefulWidget {
         bannerFirststring: "Get",
         bannerSecondString: "50% OFF",
         bannerThirdString: "On first 03 orders",
-        bannertileImagePath: AppImagesPath.imageIcon,
+        bannertileImagePath: AppImagesPath.shoppingBag,
       ),
     );
 
@@ -40,7 +40,7 @@ class CustomTile extends StatefulWidget {
         bannerFirststring: "Get",
         bannerSecondString: "Free Shipping",
         bannerThirdString: "On first order",
-        bannertileImagePath: AppImagesPath.imageIcon,
+        bannertileImagePath: AppImagesPath.freeShipping,
       ),
     );
     return banners;
@@ -66,6 +66,8 @@ class _CustomTileState extends State<CustomTile> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10),
+              // child: Image.asset(
+              //     widget.bannertileImagePath ?? AppImagesPath.imageIcon),
               child: Image(
                 height: 100,
                 image: Svg(

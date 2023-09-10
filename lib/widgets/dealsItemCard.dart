@@ -28,11 +28,13 @@ class _DealsIteamCardState extends State<DealsIteamCard> {
       height: 194,
       width: 167,
       children: [
-        Image(
-          image: Svg(widget.imagepath ?? AppImagesPath.imageIcon),
-          height: 68,
-          width: 68,
-        ),
+        Expanded(
+            child: Image.asset(widget.imagepath ?? AppImagesPath.imageIcon)),
+        // Image(
+        //   image: Svg(widget.imagepath ?? AppImagesPath.imageIcon),
+        //   height: 68,
+        //   width: 68,
+        // ),
         Align(
           alignment: Alignment.topRight,
           child: Icon(
@@ -48,9 +50,13 @@ class _DealsIteamCardState extends State<DealsIteamCard> {
             style: itemCardAmountStyle,
           ),
         ),
-        Text(
-          widget.textdata,
-          style: itemCardSecondlineStyle,
+        Align(
+          alignment: Alignment.topLeft,
+          child: Text(
+            textAlign: TextAlign.left,
+            widget.textdata,
+            style: itemCardSecondlineStyle,
+          ),
         ),
       ],
     );

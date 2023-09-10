@@ -18,8 +18,8 @@ getItemsDeal({category}) {
   return itemsInCategory;
 }
 
-todaysDeals(String item) {
-  String textLine = "Deals on $item";
-  List dealsItems = getItemsByCategory(item);
+todaysDeals(String categoryName) {
+  String textLine = "Deals on $categoryName";
+  List dealsItems = getItemsByCategory(categoryName);
   return [textLine, dealsItems];
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/components/Category.dart';
 import 'package:uimehdinathani/components/Items.dart';
-import 'package:uimehdinathani/components/appImagesPath.dart';
 import 'package:uimehdinathani/widgets/category_card.dart';
 import 'package:uimehdinathani/widgets/topbarCategorypage.dart';
 
@@ -22,15 +21,16 @@ class _CategoryViewState extends State<CategoryView> {
       body: SafeArea(
         child: Column(
           children: [
-            TopBarCategory(),
+            const TopBarCategory(),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        crossAxisCount: 2),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisSpacing: 16,
+                            mainAxisSpacing: 16,
+                            crossAxisCount: 2),
                     itemCount: uniqueCategories.length,
                     itemBuilder: (context, index) {
                       String categoryName = uniqueCategories[index];
@@ -41,7 +41,7 @@ class _CategoryViewState extends State<CategoryView> {
                         return CategoryCard(
                             categoryName: categoryName,
                             tag: categoryItem['tagline'],
-                            imagePath: AppImagesPath.imageIcon);
+                            imagePath: categoryItem['img'][0]);
                       }
                     }),
               ),
