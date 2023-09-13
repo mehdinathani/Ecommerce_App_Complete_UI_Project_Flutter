@@ -24,4 +24,5 @@ class AppColors {
   static Color lineIcon3Color = const Color(0xffE0E2EE);
   static Color itemCardSecondlineColor = const Color(0xff616A7D);
   static Color amountColor = const Color(0xff3F3F3F);
+  static Color reviewsCountColor = const Color(0xffA1A1AB);
 }

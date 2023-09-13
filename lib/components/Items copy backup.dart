@@ -355,11 +355,4 @@ class Items {
       'tags': ['Fresh', 'Free Delivery'],
     }
   ];
-
-  Items() {
-    for (var item in itemList) {
-      item['isFavourite'] = false;
-      item['isAddToCart'] = false;
-    }
-  }
 }

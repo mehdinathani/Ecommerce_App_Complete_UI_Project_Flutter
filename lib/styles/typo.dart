@@ -131,3 +131,58 @@ TextStyle choiceChiptagsStyle = CustomTextStyle.toTextStyle(
       fontWeight: FontWeight.w600,
       textColor: AppColors.amountColor),
 );
+
+TextStyle productNameHeadingStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      textColor: AppColors.amountColor),
+);
+
+TextStyle productDetailTitleStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle productPriceStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.blueText,
+  ),
+);
+
+TextStyle productKGStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    textColor: AppColors.blueText,
+  ),
+);
+
+TextStyle productDiscountPriceStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.getstartedbuttonColor,
+  ),
+);
+
+TextStyle productRegPriceStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.h4color,
+  ),
+);
+
+TextStyle reviewsCountStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.reviewsCountColor,
+  ),
+);
