@@ -52,6 +52,7 @@ class _ItemViewState extends State<ItemView> {
       body: SafeArea(
         child: Container(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,26 +292,23 @@ class _ItemViewState extends State<ItemView> {
                                   title:
                                       const Text("Reviews", style: TextStyle()),
                                   children: [
-                                    SingleChildScrollView(
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.vertical,
-                                        physics: NeverScrollableScrollPhysics(),
-                                        shrinkWrap: true,
-                                        itemCount:
-                                            selectedItem['review'].length,
-                                        itemBuilder: ((context, index) =>
-                                            ListTile(
-                                              title: Text(
+                                    ListView.builder(
+                                      scrollDirection: Axis.vertical,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: selectedItem['review'].length,
+                                      itemBuilder: ((context, index) =>
+                                          ListTile(
+                                            title: Text(
+                                              selectedItem['review'][index]
+                                                      ['review']
+                                                  .toString(),
+                                            ),
+                                            subtitle: Text(
                                                 selectedItem['review'][index]
-                                                        ['review']
-                                                    .toString(),
-                                              ),
-                                              subtitle: Text(
-                                                  selectedItem['review'][index]
-                                                          ['starRating']
-                                                      .toString()),
-                                            )),
-                                      ),
+                                                        ['starRating']
+                                                    .toString()),
+                                          )),
                                     ),
                                   ],
                                 )),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:uimehdinathani/components/appImagesPath.dart';
+import 'package:uimehdinathani/components/globals.dart';
+import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/generalCard.dart';
@@ -23,6 +25,16 @@ class _DealsIteamCardState extends State<DealsIteamCard> {
   @override
   Widget build(BuildContext context) {
     return GeneralCard(
+      onTap: () {
+        setState(() {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ItemView(itemIndex: itemIndex),
+            ),
+          );
+        });
+      },
       cardColor: AppColors.black1,
       cardRadius: 12,
       height: 194,
