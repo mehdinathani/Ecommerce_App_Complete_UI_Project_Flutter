@@ -12,13 +12,15 @@ class RecomendedItemCard extends StatefulWidget {
   final String secondLineText;
   final num amount;
   final String? imagePath;
+  final Function()? onTap;
 
   const RecomendedItemCard(
       {super.key,
       required this.firstlineText,
       required this.secondLineText,
       required this.amount,
-      this.imagePath});
+      this.imagePath,
+      this.onTap});
 
   @override
   State<RecomendedItemCard> createState() => _RecomendedItemCardState();
@@ -27,87 +29,90 @@ class RecomendedItemCard extends StatefulWidget {
 class _RecomendedItemCardState extends State<RecomendedItemCard> {
   @override
   Widget build(BuildContext context) {
-    return GeneralCard(
-      onTap: () {
-        setState(() {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ItemView(itemIndex: itemIndex),
-            ),
-          );
-        });
-      },
-      cardColor: AppColors.black1,
-      cardRadius: 12,
-      height: 194,
-      width: 128,
-      children: [
-        Expanded(
-          child: Image.asset(widget.imagePath ?? AppImagesPath.Cart),
-        )
-        // Image(
-        //   height: 56.67,
-        //   width: 56.67,
-        //   image: Svg(AppImagesPath.imageIcon, color: AppColors.black),
-        // ),
-        ,
-        Image(
-          image: Svg(AppImagesPath.lineIcon2),
-          color: AppColors.lineIcon3Color,
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.firstlineText,
-                style: itemCardfirstlineStyle,
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: GeneralCard(
+        onTap: () {
+          setState(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ItemView(itemIndex: itemIndex),
               ),
-              Text(
-                widget.secondLineText,
-                style: itemCardSecondlineStyle,
-              ),
-            ],
+            );
+          });
+        },
+        cardColor: AppColors.black1,
+        cardRadius: 12,
+        height: 194,
+        width: 128,
+        children: [
+          Expanded(
+            child: Image.asset(widget.imagePath ?? AppImagesPath.Cart),
+          )
+          // Image(
+          //   height: 56.67,
+          //   width: 56.67,
+          //   image: Svg(AppImagesPath.imageIcon, color: AppColors.black),
+          // ),
+          ,
+          Image(
+            image: Svg(AppImagesPath.lineIcon2),
+            color: AppColors.lineIcon3Color,
           ),
-        ),
-        Expanded(
-          flex: -1,
-          child: Container(
-            decoration: ShapeDecoration(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16)),
-              color: AppColors.whiteText,
-            ),
-            // height: 1,
-            width: 108,
-
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
+          Align(
+            alignment: Alignment.topLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Spacer(),
                 Text(
-                  "Unit",
-                  style: itemCardUnitStyle,
+                  widget.firstlineText,
+                  style: itemCardfirstlineStyle,
                 ),
-                Spacer(),
                 Text(
-                  "\$ ${widget.amount}",
-                  style: itemCardAmountStyle,
-                ),
-                Spacer(),
-                Icon(
-                  Icons.add_circle,
-                  color: AppColors.appBackgroundColor,
+                  widget.secondLineText,
+                  style: itemCardSecondlineStyle,
                 ),
               ],
             ),
           ),
-        ),
-      ],
+          Expanded(
+            flex: -1,
+            child: Container(
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                color: AppColors.whiteText,
+              ),
+              // height: 1,
+              width: 108,
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Spacer(),
+                  Text(
+                    "Unit",
+                    style: itemCardUnitStyle,
+                  ),
+                  Spacer(),
+                  Text(
+                    "\$ ${widget.amount}",
+                    style: itemCardAmountStyle,
+                  ),
+                  Spacer(),
+                  Icon(
+                    Icons.add_circle,
+                    color: AppColors.appBackgroundColor,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

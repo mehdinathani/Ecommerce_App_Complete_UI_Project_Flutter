@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 
 class CartIconBadge extends StatefulWidget {
@@ -10,7 +11,7 @@ class CartIconBadge extends StatefulWidget {
 }
 
 class _CartIconBadgeState extends State<CartIconBadge> {
-  int cartItemsCount = 3;
+  int cartItemsCount = cartItems.length;
   late bool showCartBadge;
 
   @override

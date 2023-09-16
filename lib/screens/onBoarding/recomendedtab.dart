@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/recomendedItems.dart';
 import 'package:uimehdinathani/components/strings.dart';
+import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/styles/typo.dart';
+import 'package:uimehdinathani/widgets/functions.dart';
 import 'package:uimehdinathani/widgets/recomendItemCard.dart';
 
 class RecomendedTab extends StatefulWidget {
@@ -43,6 +46,21 @@ class _RecomendedTabState extends State<RecomendedTab> {
                   final recomendedItem =
                       RecomendedItems().recomendedItem[index];
                   return RecomendedItemCard(
+                    onTap: () {
+                      itemIndex = findItemIndexByName(
+                        recomendedItem['name'],
+                      );
+                      print(itemIndex.toString());
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ItemView(itemIndex: itemIndex),
+                          ),
+                        );
+                      });
+                    },
                     firstlineText: recomendedItem['name'],
                     secondLineText: recomendedItem['tagline'],
                     amount: recomendedItem['price'],

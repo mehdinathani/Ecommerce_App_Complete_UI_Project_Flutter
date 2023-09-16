@@ -186,3 +186,19 @@ TextStyle reviewsCountStyle = CustomTextStyle.toTextStyle(
     textColor: AppColors.reviewsCountColor,
   ),
 );
+
+TextStyle itemButton1TextStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.blue2,
+  ),
+);
+
+TextStyle itemButton2TextStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.whiteText,
+  ),
+);

@@ -4,6 +4,7 @@ import 'package:uimehdinathani/components/appImagesPath.dart';
 import 'package:uimehdinathani/components/strings.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
+import 'package:uimehdinathani/widgets/backbutton_custom.dart';
 import 'package:uimehdinathani/widgets/locationmenu.dart';
 
 import 'deliveryTimeMenu.dart';
@@ -11,7 +12,14 @@ import 'deliveryTimeMenu.dart';
 class TopBarBackground extends StatefulWidget {
   final bool? isgreet;
   final String? username;
-  const TopBarBackground({super.key, this.username, this.isgreet});
+  final bool? showCustomBackButton;
+
+  const TopBarBackground({
+    super.key,
+    this.username,
+    this.isgreet,
+    this.showCustomBackButton,
+  });
 
   @override
   State<TopBarBackground> createState() => _TopBarBackgroundState();
@@ -40,6 +48,9 @@ class _TopBarBackgroundState extends State<TopBarBackground> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                widget.showCustomBackButton ?? false
+                    ? const CustomBackButton()
+                    : SizedBox(),
                 DefaultTextStyle(
                   style: usernamestyle,
                   child: Text(

@@ -11,6 +11,8 @@ class CustomButton extends StatelessWidget {
   final double? fontsize;
   final IconData? buttonIcon;
   final double? iconSize;
+  final double? mediaWidth;
+  final double? mediaHeight;
 
   const CustomButton({
     super.key,
@@ -22,13 +24,18 @@ class CustomButton extends StatelessWidget {
     this.fontsize,
     this.buttonIcon,
     this.iconSize,
+    this.mediaWidth,
+    this.mediaHeight,
   });
 
   @override
   Widget build(BuildContext context) {
+    double mediaWidth = MediaQuery.of(context).size.width;
+    double mediaHeight = MediaQuery.of(context).size.height;
+
     return Container(
-      width: 253,
-      height: 70,
+      width: mediaWidth * 0.55,
+      height: mediaHeight * 0.12,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         color: buttonColor ?? AppColors.blue1,

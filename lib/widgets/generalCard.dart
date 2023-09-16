@@ -27,7 +27,7 @@ class _GeneralCardState extends State<GeneralCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      // onTap: widget.onTap,
       child: Container(
         padding: const EdgeInsets.all(15),
         width: widget.width ?? 269,

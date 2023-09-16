@@ -13,6 +13,7 @@ class _TopBarCategoryState extends State<TopBarCategory> {
   @override
   Widget build(BuildContext context) {
     return GeneralTopBar(
+      showCustomBackButton: true,
       isgreet: true,
       username: "Mehdi Abbas",
       children: [

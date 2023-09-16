@@ -21,6 +21,7 @@ class _GroceryHomeState extends State<GroceryHome> {
         body: Column(
           children: [
             TopBarBackground(
+              showCustomBackButton: false,
               isgreet: true,
               username: "Mehdi",
             ),

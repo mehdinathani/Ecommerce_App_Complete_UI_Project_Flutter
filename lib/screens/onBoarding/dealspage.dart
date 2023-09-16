@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uimehdinathani/components/globals.dart';
+import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/widgets/dealsItemCard.dart';
+import 'package:uimehdinathani/widgets/functions.dart';
 
 import '../../components/deals.dart';
 import '../../components/recomendedItems.dart';
@@ -44,6 +47,20 @@ class _DealsViewState extends State<DealsView> {
             itemBuilder: (context, index) {
               final fruitsDeal = DealsView.fruitsDeal[index];
               return DealsIteamCard(
+                onTap: () {
+                  itemIndex = findItemIndexByName(
+                    fruitsDeal['name'],
+                  );
+                  print(itemIndex.toString());
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ItemView(itemIndex: itemIndex),
+                      ),
+                    );
+                  });
+                },
                 textdata: fruitsDeal['name'],
                 amount: fruitsDeal['price'],
                 imagepath: fruitsDeal['img'][0],

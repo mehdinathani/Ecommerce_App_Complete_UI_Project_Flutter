@@ -6,6 +6,7 @@ import 'package:uimehdinathani/screens/onBoarding/groceryhome.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/CustomButton.dart';
+import 'package:uimehdinathani/widgets/custom_bottom_bar.dart';
 
 import '../../widgets/onbardingh1.dart';
 
@@ -130,6 +131,8 @@ class Pages extends StatelessWidget {
                                   child: Image.asset(
                                 item,
                                 fit: BoxFit.cover,
+                                height: 100000,
+                                width: 100000,
                               )),
                             ))
                         .toList(),
@@ -147,7 +150,7 @@ class Pages extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const GroceryHome(),
+                  builder: (context) => const CustomBottomBar(),
                 ),
               );
             },

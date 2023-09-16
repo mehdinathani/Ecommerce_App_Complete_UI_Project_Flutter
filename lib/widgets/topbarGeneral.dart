@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
+import 'package:uimehdinathani/widgets/backbutton_custom.dart';
 import 'package:uimehdinathani/widgets/topBarBackground.dart';
 
 class GeneralTopBar extends StatefulWidget {
@@ -14,6 +15,7 @@ class GeneralTopBar extends StatefulWidget {
   final Color? searchIconColor;
   final bool? isCartIconShow;
   final Color? cartIconColor;
+  final bool? showCustomBackButton;
 
   const GeneralTopBar(
       {super.key,
@@ -26,7 +28,8 @@ class GeneralTopBar extends StatefulWidget {
       this.isSearchIconShow,
       this.searchIconColor,
       this.isCartIconShow,
-      this.cartIconColor});
+      this.cartIconColor,
+      this.showCustomBackButton});
 
   @override
   State<GeneralTopBar> createState() => _GeneralTopBarState();
@@ -53,6 +56,9 @@ class _GeneralTopBarState extends State<GeneralTopBar> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                widget.showCustomBackButton ?? false
+                    ? const CustomBackButton()
+                    : SizedBox(),
                 DefaultTextStyle(
                   style: usernamestyle,
                   child: Text(

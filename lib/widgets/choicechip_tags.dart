@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/tags_filtered_data.dart';
+import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/dealsItemCard.dart';
+import 'package:uimehdinathani/widgets/functions.dart';
 import 'package:uimehdinathani/widgets/recomendItemCard.dart';
 import 'package:uimehdinathani/widgets/topbar_filterview.dart';
 
@@ -61,6 +63,20 @@ class _FilterTagsState extends State<FilterTags> {
                 List itemsInTag = getItemsByTags(selectedTag);
                 final item = itemsInTag[index];
                 return DealsIteamCard(
+                  onTap: () {
+                    itemIndex = findItemIndexByName(
+                      item['name'],
+                    );
+                    print(itemIndex.toString());
+                    setState(() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ItemView(itemIndex: itemIndex),
+                        ),
+                      );
+                    });
+                  },
                   amount: item['price'],
                   textdata: item['name'],
                   imagepath: item['img'][0],

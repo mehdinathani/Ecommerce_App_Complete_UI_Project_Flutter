@@ -11,11 +11,13 @@ class DealsIteamCard extends StatefulWidget {
   final num amount;
   final String textdata;
   final String? imagepath;
+  final Function()? onTap;
   const DealsIteamCard(
       {super.key,
       required this.amount,
       required this.textdata,
-      this.imagepath});
+      this.imagepath,
+      this.onTap});
 
   @override
   State<DealsIteamCard> createState() => _DealsIteamCardState();
@@ -24,53 +26,56 @@ class DealsIteamCard extends StatefulWidget {
 class _DealsIteamCardState extends State<DealsIteamCard> {
   @override
   Widget build(BuildContext context) {
-    return GeneralCard(
-      onTap: () {
-        setState(() {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ItemView(itemIndex: itemIndex),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: GeneralCard(
+        // onTap: () {
+        //   setState(() {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(
+        //         builder: (context) => ItemView(itemIndex: itemIndex),
+        //       ),
+        //     );
+        //   });
+        // },
+        cardColor: AppColors.black1,
+        cardRadius: 12,
+        height: 194,
+        width: 167,
+        children: [
+          Expanded(
+              child: Image.asset(widget.imagepath ?? AppImagesPath.imageIcon)),
+          // Image(
+          //   image: Svg(widget.imagepath ?? AppImagesPath.imageIcon),
+          //   height: 68,
+          //   width: 68,
+          // ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Icon(
+              Icons.add_circle_rounded,
+              color: AppColors.appBackgroundColor,
+              size: 24,
             ),
-          );
-        });
-      },
-      cardColor: AppColors.black1,
-      cardRadius: 12,
-      height: 194,
-      width: 167,
-      children: [
-        Expanded(
-            child: Image.asset(widget.imagepath ?? AppImagesPath.imageIcon)),
-        // Image(
-        //   image: Svg(widget.imagepath ?? AppImagesPath.imageIcon),
-        //   height: 68,
-        //   width: 68,
-        // ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Icon(
-            Icons.add_circle_rounded,
-            color: AppColors.appBackgroundColor,
-            size: 24,
           ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "\$ ${widget.amount}",
-            style: itemCardAmountStyle,
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "\$ ${widget.amount}",
+              style: itemCardAmountStyle,
+            ),
           ),
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Text(
-            textAlign: TextAlign.left,
-            widget.textdata,
-            style: itemCardSecondlineStyle,
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              textAlign: TextAlign.left,
+              widget.textdata,
+              style: itemCardSecondlineStyle,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

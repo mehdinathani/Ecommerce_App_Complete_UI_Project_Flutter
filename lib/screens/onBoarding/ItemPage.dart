@@ -1,9 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:uimehdinathani/components/Items.dart';
-import 'package:uimehdinathani/components/appImagesPath.dart';
+import 'package:uimehdinathani/components/favorites.dart';
+import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/backbutton_custom.dart';
@@ -12,6 +12,7 @@ import 'package:uimehdinathani/widgets/cartIcon_badge.dart';
 class ItemView extends StatefulWidget {
   final int itemIndex;
   static Items items = Items();
+
   const ItemView({super.key, required this.itemIndex});
 
   @override
@@ -23,10 +24,13 @@ class _ItemViewState extends State<ItemView> {
 
   @override
   Widget build(BuildContext context) {
-    bool isFavourite = true;
+    double mediaWidth = MediaQuery.of(context).size.width;
+    double mediaHeight = MediaQuery.of(context).size.height;
+
     // Map selectedItem = ItemView.items.itemList[1];
 
-    Map selectedItem = ItemView.items.itemList[widget.itemIndex];
+    Map<String, dynamic> selectedItem =
+        ItemView.items.itemList[widget.itemIndex];
     // List<String> images = ItemView.items.itemList[widget.itemIndex]['img'];
     List<String> images = selectedItem['img'];
     String itemName = selectedItem['name'];
@@ -96,13 +100,14 @@ class _ItemViewState extends State<ItemView> {
                   child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.black1,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
                   ),
                 ),
-                margin: EdgeInsets.symmetric(horizontal: 10),
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 18),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 18),
                 child: Column(
                   children: [
                     SingleChildScrollView(
@@ -113,7 +118,7 @@ class _ItemViewState extends State<ItemView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: EdgeInsets.only(bottom: 16),
+                                margin: const EdgeInsets.only(bottom: 16),
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: Text(
                                   selectedItem['name'],
@@ -122,21 +127,20 @@ class _ItemViewState extends State<ItemView> {
                               ),
                               IconButton(
                                 onPressed: () {
-                                  if (isFavourite == false) {
-                                    //add to favourite pending
+                                  if (selectedItem['isFavourite'] == false) {
+                                    selectedItem['isFavourite'] = true;
 
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content:
                                             Text("Item added to favourites !"),
                                         duration: Duration(seconds: 1),
                                       ),
                                     );
-                                    print(isFavourite);
-                                    isFavourite = !(isFavourite);
-                                    print(isFavourite);
+                                    print(selectedItem['isFavourite']);
                                   } else {
-                                    //remove from favourite pending
+                                    selectedItem['isFavourite'] = false;
+                                    print(selectedItem['isFavourite']);
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -144,18 +148,16 @@ class _ItemViewState extends State<ItemView> {
                                         duration: Duration(seconds: 1),
                                       ),
                                     );
-                                    print(isFavourite);
-                                    isFavourite = !(isFavourite);
-                                    print(isFavourite);
                                   }
                                   setState(() {});
                                 },
                                 icon: Icon(
-                                  isFavourite
+                                  selectedItem['isFavourite']
                                       ? Icons.favorite
                                       : Icons.favorite_border_outlined,
-                                  color:
-                                      isFavourite ? Colors.red : Colors.black,
+                                  color: selectedItem['isFavourite']
+                                      ? Colors.red
+                                      : Colors.black,
                                   size: 26,
                                 ),
                               )
@@ -243,7 +245,7 @@ class _ItemViewState extends State<ItemView> {
                                   dividerColor: Colors.transparent,
                                 ),
                                 child: ExpansionTile(
-                                  initiallyExpanded: true,
+                                  initiallyExpanded: false,
                                   collapsedIconColor: AppColors.h4color,
                                   expandedAlignment: Alignment.centerLeft,
                                   tilePadding: EdgeInsets.zero,
@@ -313,6 +315,65 @@ class _ItemViewState extends State<ItemView> {
                                   ],
                                 )),
                           ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: mediaWidth * 0.35,
+                                height: mediaHeight * 0.07,
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            AppColors.whiteText),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(18.0),
+                                        side:
+                                            BorderSide(color: AppColors.blue2),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    cartItems.add(selectedItem);
+                                    print(cartItems);
+                                  },
+                                  child: Text(
+                                    "Add To Cart",
+                                    style: itemButton1TextStyle,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: mediaWidth * 0.35,
+                                height: mediaHeight * 0.07,
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            AppColors.blue2),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(18.0),
+                                        side:
+                                            BorderSide(color: AppColors.blue2),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Buy Now",
+                                    style: itemButton2TextStyle,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     )
