@@ -1,4 +1,5 @@
 import 'package:uimehdinathani/components/appImagesPath.dart';
+import 'package:uimehdinathani/components/cartItems.dart';
 
 class Items {
   List itemList = [
@@ -361,5 +362,15 @@ class Items {
       item['isFavourite'] = false;
       item['isAddToCart'] = false;
     }
+  }
+
+  AddedItems convertToAddedItems(Map<String, dynamic> item) {
+    return AddedItems(
+      price: item['price'],
+      name: item['name'],
+      quantity: 1, // You can set the initial quantity as needed.
+      img: item['img']
+          [0], // Assuming you want to use the first image as the icon path.
+    );
   }
 }

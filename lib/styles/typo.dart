@@ -202,3 +202,51 @@ TextStyle itemButton2TextStyle = CustomTextStyle.toTextStyle(
     textColor: AppColors.whiteText,
   ),
 );
+
+TextStyle cartAppBarTilteStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle cartOfferStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 110,
+    fontWeight: FontWeight.w800,
+    textColor: AppColors.getstartedbuttonColor,
+  ),
+);
+
+TextStyle offStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w800,
+    textColor: AppColors.getstartedbuttonColor,
+  ),
+);
+
+TextStyle cartItemCountStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle bottomSheetlabelStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.itemCardSecondlineColor,
+  ),
+);
+
+TextStyle bottomSheetValuesStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    textColor: AppColors.black,
+  ),
+);

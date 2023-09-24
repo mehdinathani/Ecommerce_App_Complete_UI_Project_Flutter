@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:uimehdinathani/components/globals.dart';
+import 'package:uimehdinathani/screens/onBoarding/cart_View.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 
 class CartIconBadge extends StatefulWidget {
@@ -28,7 +29,14 @@ class _CartIconBadgeState extends State<CartIconBadge> {
         style: TextStyle(color: AppColors.whiteText),
       ),
       child: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CartView(),
+            ),
+          );
+        },
         icon: Icon(
           Icons.shopping_cart,
         ),

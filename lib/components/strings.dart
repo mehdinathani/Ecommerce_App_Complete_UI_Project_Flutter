@@ -12,4 +12,6 @@ class OnBoardingTextData {
   static String within = "Within";
   static String Recommended = "Recommended";
   static String dealsin = "Deals on Fruits & Tea";
+  static String cartOffer = "25%";
+  static String checkoutText = "Proceed  To checkout";
 }

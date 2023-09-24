@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:uimehdinathani/components/Items.dart';
+import 'package:uimehdinathani/components/cartItems.dart';
 import 'package:uimehdinathani/components/favorites.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/backbutton_custom.dart';
 import 'package:uimehdinathani/widgets/cartIcon_badge.dart';
+import 'package:uimehdinathani/widgets/cartItems_builder.dart';
+import 'package:uimehdinathani/widgets/cart_provider.dart';
+import 'package:uimehdinathani/widgets/functions.dart';
 
 class ItemView extends StatefulWidget {
   final int itemIndex;
@@ -338,8 +343,32 @@ class _ItemViewState extends State<ItemView> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    cartItems.add(selectedItem);
-                                    print(cartItems);
+                                    setState(() {
+                                      final cartProvider =
+                                          Provider.of<CartProvider>(context,
+                                              listen: false);
+                                      final items =
+                                          Items(); // Create an instance of the Items class.
+
+                                      // Get the selected item from your data using the itemIndex passed from the widget.
+                                      final selectedItem =
+                                          items.itemList[widget.itemIndex];
+
+                                      // Convert the selected item to AddedItems.
+                                      final addedItem = AddedItems(
+                                        price: (selectedItem['price'] as int)
+                                            .toDouble(),
+                                        name: selectedItem['name'],
+                                        quantity: 1,
+                                        img: selectedItem['img'][0],
+                                      );
+
+                                      // Convert the AddedItems object to a Map<String, dynamic>.
+                                      final addedItemMap = addedItem.toMap();
+
+                                      // Add it to the cart.
+                                      cartProvider.addToCart(addedItemMap);
+                                    });
                                   },
                                   child: Text(
                                     "Add To Cart",
@@ -365,7 +394,9 @@ class _ItemViewState extends State<ItemView> {
                                       ),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    addToCart(selectedItem);
+                                  },
                                   child: Text(
                                     "Buy Now",
                                     style: itemButton2TextStyle,
