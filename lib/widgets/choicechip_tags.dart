@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:uimehdinathani/components/cartItems.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/tags_filtered_data.dart';
 import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
+import 'package:uimehdinathani/widgets/cart_provider.dart';
 import 'package:uimehdinathani/widgets/dealsItemCard.dart';
 import 'package:uimehdinathani/widgets/functions.dart';
 import 'package:uimehdinathani/widgets/recomendItemCard.dart';
@@ -80,6 +83,29 @@ class _FilterTagsState extends State<FilterTags> {
                   amount: item['price'],
                   textdata: item['name'],
                   imagepath: item['img'][0],
+                  onTapAdd: () {
+                    {
+                      setState(() {
+                        final cartProvider =
+                            Provider.of<CartProvider>(context, listen: false);
+
+                        // Convert the selected item to AddedItems.
+                        final addedItem = AddedItems(
+                          price: (item['price'] as int).toDouble(),
+                          name: item['name'],
+                          quantity: 1,
+                          img: item['img'][0],
+                        );
+
+                        // Convert the AddedItems object to a Map<String, dynamic>.
+                        final addedItemMap = addedItem.toMap();
+
+                        // Add it to the cart.
+                        cartProvider.addToCart(addedItemMap);
+                      });
+                    }
+                    ;
+                  },
                 );
                 // RecomendedItemCard(
                 //   firstlineText: item['name'],

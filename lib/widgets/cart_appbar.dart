@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/strings.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/backbutton_custom.dart';
+import 'package:uimehdinathani/widgets/cart_provider.dart';
 
 class CartAppBar extends StatefulWidget {
   const CartAppBar({super.key});
@@ -27,67 +29,71 @@ class _CartAppBarState extends State<CartAppBar> {
   );
   @override
   Widget build(BuildContext context) {
-    double mediaWidth = MediaQuery.of(context).size.width;
-    double mediaHieght = MediaQuery.of(context).size.height;
+    return Consumer<CartProvider>(
+      builder: (context, cartProvider, child) {
+        double mediaWidth = MediaQuery.of(context).size.width;
+        double mediaHieght = MediaQuery.of(context).size.height;
 
-    return Container(
-      width: mediaWidth * 1,
-      height: mediaHieght * 0.3,
-      color: AppColors.orange2,
-      child: Stack(children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 1),
-              child: const Text(
-                "#",
-                style: TextStyle(
-                    fontSize: 300,
-                    fontWeight: FontWeight.w200,
-                    color: Colors.amber),
-              )),
-        ),
-        Row(
-          children: [
-            SizedBox(
-              height: mediaHieght * 0.12,
-              width: mediaWidth * 0.05,
+        return Container(
+          width: mediaWidth * 1,
+          height: mediaHieght * 0.3,
+          color: AppColors.orange2,
+          child: Stack(children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 1),
+                  child: const Text(
+                    "#",
+                    style: TextStyle(
+                        fontSize: 300,
+                        fontWeight: FontWeight.w200,
+                        color: Colors.amber),
+                  )),
             ),
-            const CustomBackButton(),
-            SizedBox(
-              width: mediaWidth * 0.2,
+            Row(
+              children: [
+                SizedBox(
+                  height: mediaHieght * 0.12,
+                  width: mediaWidth * 0.05,
+                ),
+                const CustomBackButton(),
+                SizedBox(
+                  width: mediaWidth * 0.2,
+                ),
+                Text(
+                  "Shopping Cart (${cartProvider.cartItems.length})",
+                  style: cartAppBarTilteStyle,
+                ),
+              ],
             ),
-            Text(
-              "Shopping Cart (${cartItems.length})",
-              style: cartAppBarTilteStyle,
-            ),
-          ],
-        ),
-        Container(
-          padding: const EdgeInsets.only(left: 135, top: 55),
-          child: Column(
-            children: [
-              Text(
-                "        OFF!!",
-                style: offStyle,
+            Container(
+              padding: const EdgeInsets.only(left: 135, top: 55),
+              child: Column(
+                children: [
+                  Text(
+                    "        OFF!!",
+                    style: offStyle,
+                  ),
+                  Text(
+                    OnBoardingTextData.cartOffer,
+                    style: cartOfferStyle,
+                  ),
+                ],
               ),
-              Text(
-                OnBoardingTextData.cartOffer,
-                style: cartOfferStyle,
+            ),
+            Positioned(
+              top: 200,
+              child: Container(
+                height: mediaHieght * 0.05,
+                width: mediaWidth * 1,
+                color: AppColors.orange1,
+                child: Center(child: lastlineText),
               ),
-            ],
-          ),
-        ),
-        Positioned(
-          top: 200,
-          child: Container(
-            height: mediaHieght * 0.05,
-            width: mediaWidth * 1,
-            color: AppColors.orange1,
-            child: Center(child: lastlineText),
-          ),
-        ),
-      ]),
+            ),
+          ]),
+        );
+      },
     );
   }
 }

@@ -51,7 +51,7 @@ class CartItemsTiles extends StatelessWidget {
                   children: [
                     Text(itemName),
                     Text(
-                      (itemInitialPrice * itemQty).toString(),
+                      "\$ ${(itemInitialPrice * itemQty).toString()}",
                     ),
                   ],
                 ),

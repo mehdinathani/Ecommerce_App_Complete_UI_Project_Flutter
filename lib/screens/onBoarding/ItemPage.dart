@@ -4,6 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 import 'package:uimehdinathani/components/Items.dart';
 import 'package:uimehdinathani/components/cartItems.dart';
+import 'package:uimehdinathani/components/fav_items.dart';
 import 'package:uimehdinathani/components/favorites.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
@@ -132,39 +133,41 @@ class _ItemViewState extends State<ItemView> {
                               ),
                               IconButton(
                                 onPressed: () {
-                                  if (selectedItem['isFavourite'] == false) {
-                                    selectedItem['isFavourite'] = true;
+                                  final favoriteProvider =
+                                      Provider.of<FavoriteItemsProvider>(
+                                          context,
+                                          listen: false);
+                                  final selectedItem =
+                                      ItemView.items.itemList[widget.itemIndex];
+                                  favoriteProvider.toggleFavorite(selectedItem);
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content:
-                                            Text("Item added to favourites !"),
-                                        duration: Duration(seconds: 1),
-                                      ),
-                                    );
-                                    print(selectedItem['isFavourite']);
-                                  } else {
-                                    selectedItem['isFavourite'] = false;
-                                    print(selectedItem['isFavourite']);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                            "Item removed from favourite !"),
-                                        duration: Duration(seconds: 1),
-                                      ),
-                                    );
-                                  }
-                                  setState(() {});
+                                  final snackBarText =
+                                      selectedItem['isFavourite']
+                                          ? "Item added to favorites!"
+                                          : "Item removed from favorites!";
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(snackBarText),
+                                      duration: Duration(seconds: 1),
+                                    ),
+                                  );
                                 },
-                                icon: Icon(
-                                  selectedItem['isFavourite']
-                                      ? Icons.favorite
-                                      : Icons.favorite_border_outlined,
-                                  color: selectedItem['isFavourite']
-                                      ? Colors.red
-                                      : Colors.black,
-                                  size: 26,
-                                ),
+                                icon: Consumer<FavoriteItemsProvider>(builder:
+                                    (context, favoriteProvider, child) {
+                                  final isFavorite = favoriteProvider
+                                      .isItemInFavorites(selectedItem);
+
+                                  return Icon(
+                                    selectedItem['isFavourite']
+                                        ? Icons.favorite
+                                        : Icons.favorite_border_outlined,
+                                    color: selectedItem['isFavourite']
+                                        ? Colors.red
+                                        : Colors.black,
+                                    size: 26,
+                                  );
+                                }),
                               )
                             ],
                           ),

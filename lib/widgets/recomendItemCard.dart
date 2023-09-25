@@ -13,6 +13,7 @@ class RecomendedItemCard extends StatefulWidget {
   final num amount;
   final String? imagePath;
   final Function()? onTap;
+  final Function()? onTapAdd;
 
   const RecomendedItemCard(
       {super.key,
@@ -20,7 +21,8 @@ class RecomendedItemCard extends StatefulWidget {
       required this.secondLineText,
       required this.amount,
       this.imagePath,
-      this.onTap});
+      this.onTap,
+      this.onTapAdd});
 
   @override
   State<RecomendedItemCard> createState() => _RecomendedItemCardState();
@@ -103,9 +105,12 @@ class _RecomendedItemCardState extends State<RecomendedItemCard> {
                     style: itemCardAmountStyle,
                   ),
                   Spacer(),
-                  Icon(
-                    Icons.add_circle,
-                    color: AppColors.appBackgroundColor,
+                  InkWell(
+                    onTap: widget.onTapAdd,
+                    child: Icon(
+                      Icons.add_circle,
+                      color: AppColors.appBackgroundColor,
+                    ),
                   ),
                 ],
               ),

@@ -24,57 +24,61 @@ class CartBottomSheet extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-            height: mediaHeight * 0.00002,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "Subtotal",
-                style: bottomSheetlabelStyle,
-              ),
-              Text(cartProvider.calculateSubtotal().toStringAsFixed(2),
-                  style: bottomSheetValuesStyle),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "Subtotal",
-                style: bottomSheetlabelStyle,
-              ),
-              Text(
-                "data",
-                style: bottomSheetValuesStyle,
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                "Subtotal",
-                style: bottomSheetlabelStyle,
-              ),
-              Text(
-                "data",
-                style: bottomSheetValuesStyle,
-              ),
-            ],
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: mediaHeight * 0.00002,
             ),
-            onPressed: () {},
-            child: Text(OnBoardingTextData.checkoutText),
-          ),
-        ],
+            Row(
+              children: [
+                Text(
+                  "Subtotal",
+                  style: bottomSheetlabelStyle,
+                ),
+                Spacer(),
+                Text(
+                    "\$ ${cartProvider.calculateSubtotal().toStringAsFixed(2)}",
+                    style: bottomSheetValuesStyle),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "Delivery",
+                  style: bottomSheetlabelStyle,
+                ),
+                Spacer(),
+                Text(
+                  "\$ ${2.00.toStringAsFixed(2)}",
+                  style: bottomSheetValuesStyle,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "Total",
+                  style: bottomSheetlabelStyle,
+                ),
+                Spacer(),
+                Text(
+                  "\$ ${(cartProvider.calculateSubtotal() + 2.00).toStringAsFixed(2)}",
+                  style: bottomSheetValuesStyle,
+                ),
+              ],
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              ),
+              onPressed: () {},
+              child: Text(OnBoardingTextData.checkoutText),
+            ),
+          ],
+        ),
       ),
     );
   }

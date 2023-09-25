@@ -15,28 +15,36 @@ class _CartItemBuilderState extends State<CartItemBuilder> {
   Widget build(BuildContext context) {
     return Consumer<CartProvider>(builder: (context, cartProvider, child) {
       final cartItems = cartProvider.cartItems;
-      print(cartItems[0]['img'][0]);
+      if (cartProvider.cartItems.isEmpty) {
+        // display message on empty cart
+        return Center(
+          child: Text("Your Cart is Empty."),
+        );
+      } else {
+        // dispay cart items.
 
-      return Container(
-        child: ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: cartItems.length,
-          itemBuilder: (context, index) {
-            final Map<String, dynamic> item = cartItems[index];
-            print(
-              cartItems,
-            );
+        return Container(
+          child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: cartProvider.cartItems.length,
+            itemBuilder: (context, index) {
+              final item = cartProvider.cartItems[index];
+              // final Map<String, dynamic> item = cartItems[index];
+              print(
+                cartItems,
+              );
 
-            return CartItemsTiles(
-              itemName: item['name'],
-              itemInitialPrice: item['price'],
-              imagePath: item['img'],
-              itemQty: item['quantity'],
-            );
-          },
-        ),
-      );
+              return CartItemsTiles(
+                itemName: item['name'],
+                itemInitialPrice: item['price'],
+                imagePath: item['img'],
+                itemQty: item['quantity'],
+              );
+            },
+          ),
+        );
+      }
     });
   }
 }

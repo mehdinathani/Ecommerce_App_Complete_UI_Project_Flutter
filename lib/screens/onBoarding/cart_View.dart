@@ -15,16 +15,20 @@ class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CartAppBar(),
-          SingleChildScrollView(child: CartItemBuilder()),
-          Expanded(child: SizedBox()),
-          CartBottomSheet(),
-        ],
+      child: Scaffold(
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CartAppBar(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: CartItemBuilder(),
+              ),
+            ),
+            CartBottomSheet(),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

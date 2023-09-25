@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
+import 'package:uimehdinathani/widgets/backbutton_custom.dart';
+import 'package:uimehdinathani/widgets/cartIcon_badge.dart';
 
 class TopBarFilterView extends StatefulWidget {
   const TopBarFilterView({super.key});
@@ -15,16 +17,13 @@ class _TopBarFilterViewState extends State<TopBarFilterView> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      height: MediaQuery.of(context).size.height * 0.08,
+      height: MediaQuery.of(context).size.height * 0.12,
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(
-                Icons.arrow_back_ios_new,
-                color: AppColors.black,
-              ),
+              const CustomBackButton(),
               SizedBox(
                 width: MediaQuery.sizeOf(context).width * 0.15,
               ),
@@ -36,10 +35,7 @@ class _TopBarFilterViewState extends State<TopBarFilterView> {
                 child: const Icon(Icons.search),
                 onTap: () {},
               ),
-              InkWell(
-                onTap: () {},
-                child: const Icon(Icons.shopping_cart_outlined),
-              ),
+              const CartIconBadge(),
             ],
           )
         ],

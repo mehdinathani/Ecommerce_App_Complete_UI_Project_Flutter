@@ -12,12 +12,14 @@ class DealsIteamCard extends StatefulWidget {
   final String textdata;
   final String? imagepath;
   final Function()? onTap;
+  final Function()? onTapAdd;
   const DealsIteamCard(
       {super.key,
       required this.amount,
       required this.textdata,
       this.imagepath,
-      this.onTap});
+      this.onTap,
+      this.onTapAdd});
 
   @override
   State<DealsIteamCard> createState() => _DealsIteamCardState();
@@ -53,10 +55,13 @@ class _DealsIteamCardState extends State<DealsIteamCard> {
           // ),
           Align(
             alignment: Alignment.topRight,
-            child: Icon(
-              Icons.add_circle_rounded,
-              color: AppColors.appBackgroundColor,
-              size: 24,
+            child: InkWell(
+              onTap: widget.onTapAdd,
+              child: Icon(
+                Icons.add_circle_rounded,
+                color: AppColors.appBackgroundColor,
+                size: 24,
+              ),
             ),
           ),
           Align(

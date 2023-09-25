@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/screens/onBoarding/categoryview.dart';
+import 'package:uimehdinathani/screens/onBoarding/favItems_view.dart';
 import 'package:uimehdinathani/screens/onBoarding/filtered_view.dart';
 import 'package:uimehdinathani/screens/onBoarding/groceryhome.dart';
 
@@ -17,6 +18,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     GroceryHome(),
     CategoryView(),
     filtered_view(),
+    FavItemsView(),
   ];
 
   PageController _pageController = PageController(initialPage: 0);
@@ -42,6 +44,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           },
         ),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (index) {
             setState(() {
@@ -66,6 +69,13 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: Icon(Icons.tag_rounded),
               label: "Tags",
             ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite_sharp,
+                color: Colors.red,
+              ),
+              label: "Favirite",
+            )
           ],
         ),
       ),

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:uimehdinathani/components/Items.dart';
+import 'package:uimehdinathani/components/cartItems.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/recomendedItems.dart';
 import 'package:uimehdinathani/components/strings.dart';
 import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/styles/typo.dart';
+import 'package:uimehdinathani/widgets/cart_provider.dart';
 import 'package:uimehdinathani/widgets/functions.dart';
 import 'package:uimehdinathani/widgets/recomendItemCard.dart';
 
@@ -65,6 +69,32 @@ class _RecomendedTabState extends State<RecomendedTab> {
                     secondLineText: recomendedItem['tagline'],
                     amount: recomendedItem['price'],
                     imagePath: recomendedItem['img'][0],
+                    onTapAdd: () {
+                      setState(() {
+                        final cartProvider =
+                            Provider.of<CartProvider>(context, listen: false);
+                        final items =
+                            Items(); // Create an instance of the Items class.
+
+                        // // Get the selected item from your data using the itemIndex passed from the widget.
+                        // final selectedItem =
+                        //     items.itemList[widget.itemIndex];
+
+                        // Convert the selected item to AddedItems.
+                        final addedItem = AddedItems(
+                          price: (recomendedItem['price'] as int).toDouble(),
+                          name: recomendedItem['name'],
+                          quantity: 1,
+                          img: recomendedItem['img'][0],
+                        );
+
+                        // Convert the AddedItems object to a Map<String, dynamic>.
+                        final addedItemMap = addedItem.toMap();
+
+                        // Add it to the cart.
+                        cartProvider.addToCart(addedItemMap);
+                      });
+                    },
                   );
                 },
                 separatorBuilder: (context, index) => const SizedBox(

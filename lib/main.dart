@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:uimehdinathani/components/fav_items.dart';
 import 'package:uimehdinathani/screens/onBoarding/cart_View.dart';
 import 'package:uimehdinathani/screens/onBoarding/onboardingviewv02.dart';
 import 'package:uimehdinathani/widgets/cartItems_tiles.dart';
 import 'package:uimehdinathani/widgets/cart_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => FavoriteItemsProvider()),
+        // Add other providers here if needed
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

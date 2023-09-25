@@ -5,6 +5,7 @@ import 'package:uimehdinathani/components/strings.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/backbutton_custom.dart';
+import 'package:uimehdinathani/widgets/cartIcon_badge.dart';
 import 'package:uimehdinathani/widgets/locationmenu.dart';
 
 import 'deliveryTimeMenu.dart';
@@ -81,15 +82,7 @@ String greetuser(bool isgreet, String? username) {
 }
 
 Container showCartIcon(bool isCartIconShow, Color? color) {
-  String imagePath = "assets/images/bag.svg";
-  return isCartIconShow
-      ? Container(
-          child: Image(
-            image: Svg(imagePath),
-            color: color ?? AppColors.whiteText,
-          ),
-        )
-      : Container();
+  return isCartIconShow ? Container(child: const CartIconBadge()) : Container();
 }
 
 Container _searchField() {
