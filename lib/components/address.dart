@@ -1,17 +1,23 @@
 class Address {
-  String premisesType;
-  String address;
+  static List<Map<String, dynamic>> addressList = [
+    {
+      'addressName': 'Home',
+      'addressDetails': 'Soldier Bazar Street.',
+      'addressSelected': true,
+    },
+    {
+      'addressName': 'Office',
+      'addressDetails': 'Shahrah e Faisal',
+      'addressSelected': false,
+    }
+  ];
 
-  Address(this.premisesType, this.address);
-
-  @override
-  String toString() {
-    return address;
+  static void addAddress(String name, String details, bool selected) {
+    final newAddress = {
+      'addressName': name,
+      'addressDetails': details,
+      'addressSelected': selected,
+    };
+    addressList.add(newAddress);
   }
 }
-
-Map<String, Address> addresses = {
-  "Home": Address("Home", "Manekjee Street, Soldier Bazar, Karachi"),
-  "Office": Address("Office", "FTC Building, Shahrah E Faisal"),
-  "Other": Address("Other", "Bahadurabad"),
-};

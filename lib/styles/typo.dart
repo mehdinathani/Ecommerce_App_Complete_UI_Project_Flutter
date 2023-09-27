@@ -250,3 +250,27 @@ TextStyle bottomSheetValuesStyle = CustomTextStyle.toTextStyle(
     textColor: AppColors.black,
   ),
 );
+
+TextStyle deliveryaddressStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle addressheadingStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle addressdetailsStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.black,
+  ),
+);

@@ -6,7 +6,7 @@ import '../styles/colors.dart';
 import '../styles/typo.dart';
 
 class DeliveryTimeMenu extends StatefulWidget {
-  static String? selectedTime;
+  static String? selectedTime = DeliveryTime.oneHour;
   const DeliveryTimeMenu({super.key});
 
   @override

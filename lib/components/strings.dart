@@ -14,4 +14,5 @@ class OnBoardingTextData {
   static String dealsin = "Deals on Fruits & Tea";
   static String cartOffer = "25%";
   static String checkoutText = "Proceed  To checkout";
+  static String deliveryaddress = "Delivery Address";
 }

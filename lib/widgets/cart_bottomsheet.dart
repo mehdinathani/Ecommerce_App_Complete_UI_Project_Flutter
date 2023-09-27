@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uimehdinathani/components/strings.dart';
+import 'package:uimehdinathani/screens/onBoarding/checkout_view.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/cart_provider.dart';
@@ -74,7 +75,14 @@ class CartBottomSheet extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const CheckOutView()),
+                  ),
+                );
+              },
               child: Text(OnBoardingTextData.checkoutText),
             ),
           ],
