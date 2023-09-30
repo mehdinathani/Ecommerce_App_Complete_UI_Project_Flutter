@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uimehdinathani/components/strings.dart';
@@ -7,7 +9,10 @@ import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/cart_provider.dart';
 
 class CartBottomSheet extends StatelessWidget {
-  const CartBottomSheet({Key? key}) : super(key: key);
+  final String buttonText;
+  final Function()? onPressed;
+  const CartBottomSheet({Key? key, this.onPressed, required this.buttonText})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,17 +78,25 @@ class CartBottomSheet extends StatelessWidget {
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: ((context) => const CheckOutView()),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    AppColors.appBackgroundColor),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                );
-              },
-              child: Text(OnBoardingTextData.checkoutText),
+                ),
+              ),
+              onPressed: onPressed,
+              child: SizedBox(
+                width: mediaWidth * 0.7,
+                height: mediaHeight * 0.07,
+                child: Center(
+                  child: Text(
+                    buttonText,
+                    style: buttonTextstyle,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

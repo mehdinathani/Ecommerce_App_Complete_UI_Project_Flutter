@@ -112,11 +112,11 @@ class Pages extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 80,
+                  height: 50,
                 ),
                 Container(
-                  width: 129,
-                  height: 129,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: CarouselSlider(
                     options: CarouselOptions(
                       enableInfiniteScroll: true,

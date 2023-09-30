@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/cartItems_tiles.dart';
 import 'package:uimehdinathani/widgets/cart_provider.dart';
 
@@ -18,7 +19,10 @@ class _CartItemBuilderState extends State<CartItemBuilder> {
       if (cartProvider.cartItems.isEmpty) {
         // display message on empty cart
         return Center(
-          child: Text("Your Cart is Empty."),
+          child: Text(
+            "Your Cart is Empty.",
+            style: emptystyle,
+          ),
         );
       } else {
         // dispay cart items.

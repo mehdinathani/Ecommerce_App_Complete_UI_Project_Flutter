@@ -33,6 +33,9 @@ class AppImagesPath {
   static String deliverytruck = "assets/images/otherimages/deliverytruck.png";
   static String Fresh100 = "assets/images/otherimages/Fresh100.png";
   static String Halal = "assets/images/otherimages/Halal.png";
+  static String map = "assets/images/otherimages/Map.png";
+
+  static String Rider = "assets/images/otherimages/Rider.png";
   static String QuickHomeDelivery =
       "assets/images/otherimages/QuickHomeDelivery.png";
   static String chickenLolipop = "assets/images/meat/chickenLolipop.png";
@@ -58,4 +61,8 @@ class AppImagesPath {
   static String onion3 = "assets/images/vegetable/onion3.png";
   static String tomatoes = "assets/images/vegetable/tomatoes.png";
   static String tomatoes2 = "assets/images/vegetable/tomatoes2.png";
+  static String Mastercard = 'assets/images/navbar/mastercard.svg';
+  static String Visa = 'assets/images/navbar/visa.svg';
+  static String American = 'assets/images/navbar/american.svg';
+  static String wrongCard = 'assets/images/navbar/card-remove.svg';
 }

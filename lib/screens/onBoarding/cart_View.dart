@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uimehdinathani/components/strings.dart';
+import 'package:uimehdinathani/screens/onBoarding/checkout_view.dart';
 import 'package:uimehdinathani/widgets/cartItems_builder.dart';
 import 'package:uimehdinathani/widgets/cartItems_tiles.dart';
 import 'package:uimehdinathani/widgets/cart_appbar.dart';
@@ -25,7 +27,17 @@ class _CartViewState extends State<CartView> {
                 child: CartItemBuilder(),
               ),
             ),
-            CartBottomSheet(),
+            CartBottomSheet(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const CheckOutView()),
+                  ),
+                );
+              },
+              buttonText: OnBoardingTextData.checkoutText,
+            ),
           ],
         ),
       ),

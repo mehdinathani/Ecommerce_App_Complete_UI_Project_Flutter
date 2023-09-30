@@ -274,3 +274,67 @@ TextStyle addressdetailsStyle = CustomTextStyle.toTextStyle(
     textColor: AppColors.black,
   ),
 );
+
+TextStyle addCardStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle hintTextAddCard = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black.withOpacity(0.4),
+  ),
+);
+
+TextStyle addcardHeadingsStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.black45,
+  ),
+);
+
+TextStyle buttonTextstyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.whiteText,
+  ),
+);
+
+TextStyle emptystyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 80,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle orderslistTitleStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black45,
+  ),
+);
+
+TextStyle orderslistpriceStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    textColor: AppColors.black,
+  ),
+);
+
+TextStyle meetOurRiderStyle = CustomTextStyle.toTextStyle(
+  CustomTextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    textColor: AppColors.black,
+  ),
+);

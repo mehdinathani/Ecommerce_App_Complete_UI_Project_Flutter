@@ -39,4 +39,13 @@ class CartItems with ChangeNotifier {
   List<AddedItems> get items {
     return [..._items];
   }
+
+  // Function to clear cart items
+  Future<void> clearCart() async {
+    if (_items != null) {
+      _items.clear();
+    }
+
+    notifyListeners();
+  }
 }

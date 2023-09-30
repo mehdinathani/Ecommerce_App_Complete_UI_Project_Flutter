@@ -15,4 +15,9 @@ class OnBoardingTextData {
   static String cartOffer = "25%";
   static String checkoutText = "Proceed  To checkout";
   static String deliveryaddress = "Delivery Address";
+  static String cardholdername = "CARD HOLDER NAME";
+  static String cardnumber = "CARD NUMBER";
+  static String eXPDATE = "EXP DATE";
+  static String cVC = "CVC";
+  static String makeapayment = 'Make Payment';
 }

@@ -336,7 +336,7 @@ class _SelectAddressCheckOutState extends State<SelectAddressCheckOut> {
                   margin: const EdgeInsets.only(top: 122),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: AppColors.appBackgroundColor,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
