@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:uimehdinathani/components/Category.dart';
 import 'package:uimehdinathani/components/Items.dart';
 import 'package:uimehdinathani/components/cartItems.dart';
-import 'package:uimehdinathani/components/deals.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/screens/onBoarding/ItemPage.dart';
 import 'package:uimehdinathani/widgets/cart_provider.dart';
-import 'package:uimehdinathani/widgets/category_card.dart';
 import 'package:uimehdinathani/widgets/dealsItemCard.dart';
 import 'package:uimehdinathani/widgets/functions.dart';
 import 'package:uimehdinathani/widgets/topbarCategorypage.dart';

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
@@ -41,7 +42,9 @@ class _GeneralTopBarState extends State<GeneralTopBar> {
     return Container(
       alignment: Alignment.topCenter,
       width: widget.width ?? MediaQuery.sizeOf(context).width * 1,
-      height: widget.height ?? MediaQuery.sizeOf(context).height * 0.30,
+      height: kIsWeb
+          ? MediaQuery.sizeOf(context).height * 0.4
+          : widget.height ?? MediaQuery.sizeOf(context).height * 0.30,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 25.0,

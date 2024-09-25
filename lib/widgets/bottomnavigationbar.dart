@@ -51,6 +51,8 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
         extendBody: true,
         bottomNavigationBar: (bottomBarPages.length <= maxCount)
             ? AnimatedNotchBottomBar(
+                kBottomRadius: 30,
+                kIconSize: 24,
                 notchBottomBarController: _controller,
                 color: AppColors.whiteText,
                 showLabel: true,

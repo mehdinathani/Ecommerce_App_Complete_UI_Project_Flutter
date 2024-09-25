@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/widgets/choicechip_tags.dart';
-import 'package:uimehdinathani/widgets/topbar_filterview.dart';
 
 class filtered_view extends StatefulWidget {
   const filtered_view({super.key});

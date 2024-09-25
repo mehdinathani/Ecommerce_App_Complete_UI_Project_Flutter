@@ -1,6 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/components/strings.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
@@ -36,7 +36,7 @@ class _CartAppBarState extends State<CartAppBar> {
 
         return Container(
           width: mediaWidth * 1,
-          height: mediaHieght * 0.3,
+          height: kIsWeb ? mediaHieght * 0.4 : mediaHieght * 0.3,
           color: AppColors.orange2,
           child: Stack(children: [
             Align(

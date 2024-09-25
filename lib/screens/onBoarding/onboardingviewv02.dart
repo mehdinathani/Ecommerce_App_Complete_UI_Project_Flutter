@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:uimehdinathani/components/strings.dart';
-import 'package:uimehdinathani/screens/onBoarding/groceryhome.dart';
 import 'package:uimehdinathani/styles/colors.dart';
 import 'package:uimehdinathani/styles/typo.dart';
 import 'package:uimehdinathani/widgets/CustomButton.dart';

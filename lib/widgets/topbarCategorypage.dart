@@ -15,7 +15,7 @@ class _TopBarCategoryState extends State<TopBarCategory> {
     return GeneralTopBar(
       showCustomBackButton: true,
       isgreet: true,
-      username: "Mehdi Abbas",
+      username: "Mehdi",
       children: [
         Align(
           alignment: Alignment.centerLeft,

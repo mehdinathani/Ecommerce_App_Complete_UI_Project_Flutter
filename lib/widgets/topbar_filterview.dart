@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uimehdinathani/components/globals.dart';
 import 'package:uimehdinathani/styles/colors.dart';
@@ -17,7 +18,9 @@ class _TopBarFilterViewState extends State<TopBarFilterView> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      height: MediaQuery.of(context).size.height * 0.12,
+      height: kIsWeb
+          ? MediaQuery.of(context).size.height * 0.15
+          : MediaQuery.of(context).size.height * 0.12,
       child: Column(
         children: [
           Row(
